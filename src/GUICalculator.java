@@ -180,16 +180,17 @@ public class GUICalculator extends JFrame {
         double result = 0;
 
         switch (operator) {
-            case "+": result = calc.add(firstNum, secondNum); break;
-            case "-": result = calc.subtract(firstNum, secondNum); break;
-            case "*": result = calc.multiply(firstNum, secondNum); break;
-            case "/": result = calc.divide(firstNum, secondNum); break;
+            case "+": calc.add(firstNum, secondNum); break;
+            case "-": calc.subtract(firstNum, secondNum); break;
+            case "*": calc.multiply(firstNum, secondNum); break;
+            case "/": calc.divide(firstNum, secondNum); break;
         }
+        result = calc.getResult();
 
         if (result % 1 == 0) {
             display.setText(String.valueOf((int) result));
         } else {
-            display.setText(String.valueOf(result));
+            display.setText(String.format("%.2f", (result)));
         }
 
         startNewNumber = true;
